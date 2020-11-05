@@ -1,0 +1,70 @@
+{
+  "name": "star-wars-vue3",
+  "version": "0.1.0",
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "DESTINATION": "star-wars-vue3"
+  },
+  "standard-version": {
+    "skip": {
+      "changelog": true
+    },
+    "scripts": {
+      "postbump": "npm run changelog"
+    }
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "release": "standard-version",
+    "changelog": "changelog",
+    "release:first": "npm run release -- --first-release",
+    "release:major": "npm run release -- --release-as major",
+    "release:minor": "npm run release -- --release-as minor",
+    "release:patch": "npm run release -- --release-as patch"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "global": "^4.4.0",
+    "standard-version": "^9.0.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/plugin-syntax-async-generators": "^7.8.4",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.5.1",
+    "commitizen": "^4.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "typescript": "~3.9.3",
+    "vue-jest": "^5.0.0-0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@(.*)$": "<rootDir>/src$1"
+    }
+  }
+}
