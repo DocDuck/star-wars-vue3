@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import store from '@/store'
 // views
 import Persons from '../views/Persons.vue'
 import Planets from '../views/Planets.vue'
@@ -26,12 +27,18 @@ const routes = [
       {
         path: '/persons/list',
         name: 'PersonsList',
-        component: PersonsList
+        component: PersonsList,
+        beforeEnter () {
+          store.dispatch('api/setSourceName', 'persons')
+        }
       },
       {
         path: '/persons/info',
         name: 'PersonInfo',
-        component: PersonInfo
+        component: PersonInfo,
+        beforeEnter () {
+          store.dispatch('persons/loadInfo')
+        }
       }
     ]
   },
@@ -43,12 +50,18 @@ const routes = [
       {
         path: '/planets/list',
         name: 'PlanetsList',
-        component: PlanetsList
+        component: PlanetsList,
+        beforeEnter () {
+          store.dispatch('planets/loadList')
+        }
       },
       {
         path: '/planets/info',
         name: 'PlanetInfo',
-        component: PlanetInfo
+        component: PlanetInfo,
+        beforeEnter () {
+          store.dispatch('planets/loadInfo')
+        }
       }
     ]
   },
@@ -60,12 +73,18 @@ const routes = [
       {
         path: '/starships/list',
         name: 'StarshipsList',
-        component: StarshipsList
+        component: StarshipsList,
+        beforeEnter () {
+          store.dispatch('starships/loadList', true)
+        }
       },
       {
         path: '/starships/info',
         name: 'StarshipInfo',
-        component: StarshipInfo
+        component: StarshipInfo,
+        beforeEnter () {
+          store.dispatch('starships/loadInfo', true)
+        }
       }
     ]
   }

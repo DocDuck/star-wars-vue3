@@ -8,18 +8,22 @@
         <router-link class="container__header__link" to="/starships/list">Корабли</router-link>
       </div>
     </div>
-    <Loader v-if="true"></Loader>
+    <Loader v-if="getLoading"></Loader>
     <router-view v-else class="container__content flex-grow"/>
   </main> 
 </template>
 
 <script>
   import Loader from '@/components/Loader.vue'
+  import { mapGetters } from 'vuex'
 
   export default {
     name: 'PersonList',
     components: {
       Loader
+    },
+    computed: {
+      ...mapGetters('api', ['getLoading'])
     }
   }
 </script>
