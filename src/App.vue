@@ -1,5 +1,5 @@
 <template>
-  <main class="container px-10 lg:container lg:mx-auto">
+  <main class="container flex flex-col px-10 h-full lg:container lg:mx-auto">
     <div class="container__header mb-4 flex flex-col items-center centered">
       <img class="container__header__logo h-40 p-3" alt="SW logo" src="@/assets/logo.png">
       <div class="container__header__links text-xl font-bold text-gray-300">
@@ -8,9 +8,21 @@
         <router-link class="container__header__link" to="/starships/list">Корабли</router-link>
       </div>
     </div>
-    <router-view class="container__content"/>
+    <Loader v-if="true"></Loader>
+    <router-view v-else class="container__content flex-grow"/>
   </main> 
 </template>
+
+<script>
+  import Loader from '@/components/Loader.vue'
+
+  export default {
+    name: 'PersonList',
+    components: {
+      Loader
+    }
+  }
+</script>
 
 <style lang="scss">
   #app {
