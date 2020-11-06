@@ -1,24 +1,20 @@
 <template>
-  <main class="main">
-    <div class="main__header">
-      <img class="main__header__logo" alt="SW logo" src="@/assets/logo.png">
-      <div class="main__header__links">
-        <router-link class="main__header__link" to="/persons/list">Персонажи</router-link> |
-        <router-link class="main__header__link" to="/planets/list">Планеты</router-link>
-        <router-link class="main__header__link" to="/starships/list">Корабли</router-link>
+  <main class="container px-10 lg:container lg:mx-auto">
+    <div class="container__header mb-4 flex flex-col items-center centered">
+      <img class="container__header__logo h-40 p-3" alt="SW logo" src="@/assets/logo.png">
+      <div class="container__header__links text-xl font-bold text-gray-300">
+        <router-link class="container__header__link" to="/persons/list">Персонажи</router-link> |
+        <router-link class="container__header__link" to="/planets/list">Планеты</router-link> |
+        <router-link class="container__header__link" to="/starships/list">Корабли</router-link>
       </div>
     </div>
-    <router-view class="main__content"/>
+    <router-view class="container__content"/>
   </main> 
 </template>
 
 <style lang="scss">
-  .main {
-    &__header {
-      &__logo {
-        width: 360px;
-      }
-      
-    }  
+  #app {
+    width: 100vw;
+    height: 100vh;    
   }
 </style>
