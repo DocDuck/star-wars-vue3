@@ -1,19 +1,73 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+// views
+import Persons from '../views/Persons.vue'
+import Planets from '../views/Planets.vue'
+import Starships from '../views/Starships.vue'
+// person
+import PersonsList from '../components/persons/PersonsList.vue'
+import PersonInfo from '../components/persons/PersonInfo.vue'
+// Planets
+import PlanetsList from '../components/planets/PlanetsList.vue'
+import PlanetInfo from '../components/planets/PlanetInfo.vue'
+// Starships
+import StarshipsList from '../components/starships/StarshipsList.vue'
+import StarshipInfo from '../components/starships/StarshipInfo.vue'
 
 const routes = [
-  {
+  { 
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/persons'
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/persons',
+    name: 'Persons',
+    component: Persons,
+    children: [
+      {
+        path: '/persons/list',
+        name: 'PersonsList',
+        component: PersonsList
+      },
+      {
+        path: '/persons/info',
+        name: 'PersonInfo',
+        component: PersonInfo
+      }
+    ]
+  },
+  {
+    path: '/planets',
+    name: 'Planets',
+    component: Planets,
+    children: [
+      {
+        path: '/planets/list',
+        name: 'PlanetsList',
+        component: PlanetsList
+      },
+      {
+        path: '/planets/info',
+        name: 'PlanetInfo',
+        component: PlanetInfo
+      }
+    ]
+  },
+  {
+    path: '/starships',
+    name: 'Starships',
+    component: Starships,
+    children: [
+      {
+        path: '/starships/list',
+        name: 'StarshipsList',
+        component: StarshipsList
+      },
+      {
+        path: '/starships/info',
+        name: 'StarshipInfo',
+        component: StarshipInfo
+      }
+    ]
   }
 ]
 
