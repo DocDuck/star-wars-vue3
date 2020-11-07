@@ -1,7 +1,7 @@
 <template>
     <ul class="list overflow-y-scroll">
-        <li v-for="item in list" :key="item+key" class="list__item">
-            {{ item }}
+        <li v-for="(item, key) in list" :key="item+key" @click="$emit('on-click', item)" class="list__item">
+            {{ item.name }}
         </li>    
     </ul>     
 </template>
@@ -29,6 +29,7 @@
             align-items: center;
             padding: 16px 4px;
             font-size: 16px;
+            cursor: pointer;
         }
     }
 </style>

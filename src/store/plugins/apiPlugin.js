@@ -2,7 +2,7 @@ import Api from '@/api/starApiService'
 
 let apiPlugin = (store) => {
     const dispatch = store.dispatch
-    const getter = store
+    const getter = store.getters
 
     const api = new Api()
 

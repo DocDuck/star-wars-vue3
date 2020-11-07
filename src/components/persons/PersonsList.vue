@@ -1,21 +1,27 @@
 <template>
   <div class="persons-list">
-    <List :list="personsNames"/>
+    <List @onClick="onClickHandler" :list="getList"/>
   </div>
 </template>
 <script>
 import List from '@/components/List'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+import { getIdFromUrlField } from '@/utils/helpers.js'
 export default {
   name: 'PersonList',
   components: {
     List
   },
   computed: {
-    ...mapGetters('persons', ['getList']),
-    personsNames () {
-      return this.getList.map(item => item.name)
-    }
+    ...mapGetters('persons', ['getList'])
+  },
+  methods: {
+    ...mapActions('persons', ['setCurrentPersonId']),
+    onClickHandler (person) {
+      const personId = getIdFromUrlField(person.url)
+      this.setCurrentPersonId(personId)
+      this.$router.push('/persons/info')
+    },
   }
   
 }
