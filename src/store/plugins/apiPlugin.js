@@ -13,14 +13,27 @@ let apiPlugin = (store) => {
         if (type === 'api/SET_SOURCE_NAME') {
             dispatch('api/setLoading', true)  
             if (payload === 'persons') {
-                const response = await api.getAllPersons()
-                const list = response?.result || []
-                dispatch('persons/setList', list)
-                dispatch('api/setLoading', false)
+                try {
+                    const response = await api.getAllPersons()
+                    const list = response?.results || []
+                    dispatch('persons/setList', list)
+                } catch {
+                    // TODO экран ошибки
+                } finally {
+                    dispatch('api/setLoading', false)
+                }
+
             }
             if (payload === 'person') {
-                const response = await api.getPerson(getter['persons/getCurrentPersonId'] || 1)
-                if (response?.name) dispatch('persons/setInfo', response)
+                try {
+                    const response = await api.getPerson(getter['persons/getCurrentPersonId'])
+                    if (response?.name) dispatch('persons/setInfo', response)
+                } catch {
+                    // TODO экран ошибки
+                } finally {
+                    dispatch('api/setLoading', false)
+                }
+
                 dispatch('api/setLoading', false)
             }
             // TODO обработать остальные запросы (планеты, корабли)

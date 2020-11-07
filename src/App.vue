@@ -9,7 +9,7 @@
       </div>
     </div>
     <Loader v-if="getLoading"></Loader>
-    <router-view v-else class="container__content flex-grow"/>
+    <router-view v-else class="container__content flex-grow overflow-hidden"/>
   </main> 
 </template>
 
