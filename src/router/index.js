@@ -37,7 +37,7 @@ const routes = [
         name: 'PersonInfo',
         component: PersonInfo,
         beforeEnter () {
-          store.dispatch('persons/loadInfo')
+          store.dispatch('api/setSourceName', 'person')
         }
       }
     ]
@@ -52,7 +52,7 @@ const routes = [
         name: 'PlanetsList',
         component: PlanetsList,
         beforeEnter () {
-          store.dispatch('planets/loadList')
+          store.dispatch('api/setSourceName', 'planets')
         }
       },
       {
@@ -60,7 +60,7 @@ const routes = [
         name: 'PlanetInfo',
         component: PlanetInfo,
         beforeEnter () {
-          store.dispatch('planets/loadInfo')
+          store.dispatch('api/setSourceName', 'planet')
         }
       }
     ]
@@ -75,7 +75,7 @@ const routes = [
         name: 'StarshipsList',
         component: StarshipsList,
         beforeEnter () {
-          store.dispatch('starships/loadList', true)
+          store.dispatch('api/setSourceName', 'starships')
         }
       },
       {
@@ -83,7 +83,7 @@ const routes = [
         name: 'StarshipInfo',
         component: StarshipInfo,
         beforeEnter () {
-          store.dispatch('starships/loadInfo', true)
+          store.dispatch('api/setSourceName', 'starship')
         }
       }
     ]
