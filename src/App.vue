@@ -33,4 +33,25 @@
     width: 100vw;
     height: 100vh;    
   }
+  /* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(59, 59, 59);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(126, 125, 125);
+  border-radius: 50%;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(151, 150, 150);
+}
 </style>
